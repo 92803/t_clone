@@ -1,0 +1,22 @@
+<div class="main posts-show">
+  <p id="notice">
+    <%= notice %>
+  </p>
+  <div class="page-logo">
+    <h1>Show Coment</h1>
+  </div>
+  <div class="container">
+    <div class="posts-show-item">
+      <p class="post-coment">
+        <%= @coment.content %>
+      </p>
+      <div class="post-time">
+        <%= @coment.created_at.strftime('%Y/%m/%d %H:%M')%>
+      </div>
+      <div class="post-menus">
+        <%= link_to 'Edit', edit_coment_path(@coment) %> |
+        <%= link_to 'Back', coments_path %>
+      </div>
+    </div>
+  </div>
+</div>

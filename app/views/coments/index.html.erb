@@ -1,0 +1,25 @@
+<div class="main main-table">
+  <div class="page-logo">
+    <h2>All Your Coment</h2>
+  </div>
+  
+  <div class="posts-index">
+    <div class="container">
+      <% @coments.each do |coment| %>
+        <div class="posts-show-item">
+          <p class="post-coment">
+            <%= coment.content %>
+          </p>
+          <div class="post-time">
+            <%= coment.created_at.strftime('%Y/%m/%d %H:%M')%>
+          </div>
+          <div class="post-menus">
+            <%= link_to 'show', coment_path(coment.id) %>
+            <%= link_to 'edit', edit_coment_path(coment.id),data: {confirm: '本当に編集していいですか？'}  %>
+            <%= link_to 'delete', coment_path(coment.id), method: :delete,data: {confirm: '本当に削除していいですか？'} %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

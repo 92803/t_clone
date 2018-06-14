@@ -1,0 +1,28 @@
+<%= form_with(model: @coment, local: true, url: choose_new_or_edit) do |form| %>
+  <% if @coment.errors.any? %>
+    <div class="form-error">
+      <h3><%= pluralize(coment.errors.count, "error") %> prohibited this coment from being saved:</h3>
+      <ul>
+      <% @coment.errors.full_messages.each do |message| %>
+        <h3><%= message %></h3>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="form-body">
+    <%= form.label :coment %>
+    <div class="post-coment">
+      <%= form.text_area :content %>
+    </div>
+    <% unless new_coment_path %>
+      <div class="post-time">
+        <%= coment.created_at.strftime('%Y/%m/%d %H:%M')%>
+      </div>
+    <% end %>
+    <%= form.submit %>
+  </div>
+<% end %>
+<div class="page-back">
+  <%= link_to 'Back', coments_path %>
+</div>

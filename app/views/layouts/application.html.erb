@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clone</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  
+  <header>
+    <div class="header-logo">
+      <h1>Coments!</h1>
+    </div>
+    <ul class="header-menus">
+      <li><%= link_to 'New Coment', new_coment_path %></li>
+    </ul>
+  </header>
+  
+  <% if notice %>
+    <div class = "flash">
+      <%= notice %>
+    </div>
+  <% end %>
+  
+  <body>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<div class="main posts-new">
+  <div class="page-logo">
+    <h2>Coment OK?</h2>
+  </div>
+  
+  <div class="container">
+    <div class="form-body">
+      <%= form_with(model: @coment, url: coments_path, local: true) do |form| %>
+        <%= form.hidden_field :content %>
+        <p class="post-coment">
+            <%= @coment.content %>
+          </p>
+        <%= form.submit  "Coment!" %>
+      <% end %>
+      <%= form_with(model: @coment, url: new_coment_path, local: true, method: 'get') do |form| %>
+        <%= form.hidden_field :content %>
+        <%= form.submit "Back",name: 'back' %>
+      <% end %>
+    </div>
+  </div>
+</div>
