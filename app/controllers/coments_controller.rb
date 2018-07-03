@@ -56,7 +56,7 @@ class ComentsController < ApplicationController
     @coment = Coment.new(coment_params)
     render :new if @coment.invalid?
   end
-  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_coment

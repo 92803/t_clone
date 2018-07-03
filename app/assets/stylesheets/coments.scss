@@ -34,6 +34,11 @@
   text-align: left;
 }
 
+.row-eq-height {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 /* posts/show ================================ */
 .posts-show form {
   display: inline;
@@ -68,9 +73,19 @@
 }
 
 .post-menus a, .post-menus input {
-  color: #8899a6;
+  color: #574747;
   text-decoration: none;
   font-size: 14px;
+}
+
+.btn-info {
+  background-color: #6debff;
+  border: none;
+}
+
+.btn-warning {
+  background-color: #ffcb6c;
+  border: none;
 }
 
 /* posts/new ================================ */
