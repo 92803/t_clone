@@ -1,12 +1,22 @@
 <div class="main main-table">
-    <div class="page-top">
-      <div class="page-logo">
-        <h2>･:*+.About Coments!.:+*</h2>
-      </div>
-      <div class="top-contents">
-        <p>簡単に思ったことや感じたことを記録出来る</p>
-        <p>ブログよりも気軽に利用出来るコメント機能です。</p>
+  <div class="page-top">
+    <div class="page-logo">
+      <h2>･:*+.About Coments!.:+*</h2>
+    </div>
+    <div class="top-contents">
+      <p>簡単に思ったことや感じたことを記録出来る</p>
+      <p>ブログよりも気軽に利用出来るコメント機能です。</p>
+
+      <div class="top-menus">
+        <h3>Start!</h3>
+        <% if logged_in? %>
+        <%= link_to "Logout", session_path(current_user.id),class: 'btn btn-info', method: :delete %>
+        <% else %>
+        <%= link_to "SignUp", new_user_path,class: 'btn btn-info' %>
+        <span>or</span>
+        <%= link_to "Login", new_session_path,class: 'btn btn-warning' %>
+        <% end %>
       </div>
     </div>
-    </div>
+  </div>
 </div>

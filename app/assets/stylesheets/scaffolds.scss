@@ -67,55 +67,34 @@ body {
 }
 
 /* ヘッダー ================================ */
-header {
+.container-fluid {
   height: 64px;
   background-color: #9bf7e2;
-  position: fixed;
   z-index: 1;
   width: 100%;
 }
 
-.header-logo {
+.navbar-header {
+  padding-left: 20px;
+  color: #584747;
+  font-size: 22px;
+}
+
+.navbar-brand {
   float: left;
   padding-left: 20px;
   color: #584747;
   font-size: 22px;
 }
 
-.header-logo a{
+.navbar-brand a {
   color: #584747;
   font-size: 22px;
 }
 
-.header-menus {
-  float: right;
-  padding-right: 20px;
-}
-
-.header-menus li {
-  float: left;
-  line-height: 64px;
-  font-size: 13px;
-  color: #584747;
-  padding-left: 15px;
-}
-
-.header-menus a {
-  float: left;
-  color: #584747;
-}
-
-.header-menus .fa {
-  padding-right: 5px;
-}
-
-.header-menus input[type="submit"] {
-  padding: 0 20px;
-  float: left;
-  line-height: 64px;
-  color: #584747;
-  margin: 0;
-  font-size: 13px;
+.navbar-collapse.collapse {
+  background-color: #9bf7e2;
+  border-top: 1px dotted #7b4d4d;
 }
 
 /* フッター ================================ */
@@ -130,6 +109,7 @@ footer {
 
 footer p {
   text-align: center;
+  width: auto;
 }
 
 /* フォーム================================ */
@@ -177,10 +157,10 @@ input[type="submit"] {
   cursor: pointer;
   font-size: 90%;
   height: 35px;
-  width: 30%;
   border-radius: 2px;
   margin-top: 8px;
   margin-left: 8px;
+  padding:0px 10px;
   float: right;
 }
 

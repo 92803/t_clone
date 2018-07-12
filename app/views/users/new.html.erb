@@ -1,0 +1,53 @@
+<div class="main">
+  <div class="page-logo">
+    <h1>Sign Up!</h1>
+  </div>
+
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
+    <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with(model: @user, local: true) do |f| %>
+  <div class="container">
+    <div class="form-body">
+      <div class="user_name">
+        <%= f.label :name %>
+      </div>
+      <div class="user_forms">
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="user_email">
+        <%= f.label :email %>
+      </div>
+      <div class="user_forms">
+        <%= f.email_field :email %>
+      </div>
+
+      <div class="user_pass">
+        <%= f.label :password %>
+      </div>
+      <div class="user_forms">
+        <%= f.password_field :password %>
+        ※６文字以上
+      </div>
+
+      <div class="user_pass_confirm">
+        <%= f.label :password！ %>
+      </div>
+      <div class="user_forms">
+        <%= f.password_field :password_confirmation %>
+        ※確認の為上記パスワード再入力
+      </div>
+      <%= f.submit "Create my account" %>
+    </div>
+   </div>
+<% end %>
+</div>
