@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  has_many :coments,dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_coments,through: :favorites,source: :coment
+
   validates :name,
   presence: true,length: { maximum: 30 }
 

@@ -8,6 +8,9 @@ class ComentsController < ApplicationController
 
   # GET /coments/1
   def show
+    @coment = Coment.find_by(id: params[:id])
+    @user = User.find_by(id: @coment.user_id)
+    @favorite = current_user.favorites.find_by(coment_id: @coment.id)
   end
 
   # GET /coments/new
@@ -26,6 +29,7 @@ class ComentsController < ApplicationController
   # POST /coments
   def create
     @coment = Coment.new(coment_params)
+    @coment.user_id = current_user.id
     if @coment.save
       redirect_to new_coment_path,
       notice: 'Coment was successfully created!'
@@ -54,6 +58,7 @@ class ComentsController < ApplicationController
 
   def confirm
     @coment = Coment.new(coment_params)
+    @coment.user_id = current_user.id
     render :new if @coment.invalid?
   end
 

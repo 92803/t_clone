@@ -7,6 +7,9 @@
   </div>
   <div class="container">
     <div class="posts-show-item">
+      <div class="post-user-name">
+        <%= @user.name %>
+      </div>
       <p class="post-coment">
         <%= @coment.content %>
       </p>
@@ -14,8 +17,17 @@
         <%= @coment.created_at.strftime('%Y/%m/%d %H:%M')%>
       </div>
       <div class="post-menus">
-        <%= link_to 'Edit', edit_coment_path(@coment) %> |
-        <%= link_to 'Back', coments_path %>
+        <% unless @coment.user_id == current_user.id %>
+          <% if @favorite.present? %>
+            <%= link_to 'favorite?', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-warning' %>
+          <% else %>
+            <%= link_to 'favorite!', favorites_path(coment_id: @coment.id), method: :post, class: 'btn btn-info' %>
+          <% end %>
+        <% end %>
+        <% if @coment.user_id == current_user.id %>
+          <%= link_to 'Edit', edit_coment_path(@coment) ,class: 'btn btn-info'%>
+        <% end %>
+        <%= link_to 'Back', coments_path ,class: 'btn btn-warning'%>
       </div>
     </div>
   </div>

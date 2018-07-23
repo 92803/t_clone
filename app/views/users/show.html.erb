@@ -1,11 +1,31 @@
 <div class="main">
   <div class="page-logo">
-    <h1>User : <%= @user.name %></h1>
+    <h1>Login User : <%= @user.name %></h1>
   </div>
 
   <div class="container">
-    <div>
-      <p>Email : <%= @user.email %></p>
+    <div class="user">
+      <div>
+        <p>Name : <%= @user.name %></p>
+      </div>
+      <div>
+        <p>Email : <%= @user.email %></p>
+      </div>
+    </div>
+
+    <div class="favorites">
+      <div class="post-show-item">
+        <h3>Favorites!</h3>
+        <% @favorites_coments.each do |favorites_coment| %>
+        <div class="post-user-name">
+          <%= favorites_coment.user.name %>
+        </div>
+        <p class="post-coment">
+          <%= favorites_coment.content %>
+          <%= link_to "show", coment_path(favorites_coment.id),class: 'btn btn-info' %>
+        </p>
+      <% end %>
+      </div>
     </div>
   </div>
 </div>
