@@ -17,9 +17,10 @@ ActiveRecord::Schema.define(version: 20180718013816) do
 
   create_table "coments", force: :cascade do |t|
     t.text "content"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.index ["user_id"], name: "index_coments_on_user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
