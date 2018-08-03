@@ -30,7 +30,9 @@ class ComentsController < ApplicationController
   def create
     @coment = Coment.new(coment_params)
     @coment.user_id = current_user.id
+
     if @coment.save
+      ComentMailer.coment_mail(@coment).deliver
       redirect_to new_coment_path,
       notice: 'Coment was successfully created!'
     else

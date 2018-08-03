@@ -14,16 +14,16 @@
     </div>
 
     <div class="favorites">
-      <div class="post-show-item">
-        <h3>Favorites!</h3>
+      <h3>Favorites!</h3>
+      <div class="fav-list-item">
         <% @favorites_coments.each do |favorites_coment| %>
-        <div class="post-user-name">
-          <%= favorites_coment.user.name %>
+        <div class="fav-user-name">
+          [<%= favorites_coment.user.name %>]
         </div>
         <p class="fav-coment">
-          <%= favorites_coment.content %>
+          ><%= favorites_coment.content %>
+          <%= link_to "show", coment_path(favorites_coment.id),class: 'btn btn-info' %>
         </p>
-        <%= link_to "show", coment_path(favorites_coment.id),class: 'btn btn-info' %>
       <% end %>
       </div>
     </div>
