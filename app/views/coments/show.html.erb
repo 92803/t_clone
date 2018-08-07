@@ -7,12 +7,18 @@
   </div>
   <div class="container">
     <div class="posts-show-item">
+      <div class="post-icon">
+        <%= image_tag @coment.user.icon %>
+      </div>
       <div class="post-user-name">
-        <%= @user.name %>
+        ＜<%= @user.name %>
       </div>
       <p class="post-coment">
         <%= @coment.content %>
       </p>
+      <div class="post-image">
+        <%= image_tag @coment.image %>
+      </div>
       <div class="post-time">
         <%= @coment.created_at.strftime('%Y/%m/%d %H:%M')%>
       </div>

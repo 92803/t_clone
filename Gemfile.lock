@@ -201,7 +201,7 @@ DEPENDENCIES
   bcrypt (= 3.1.11)
   byebug
   capybara (~> 2.13)
-  carrierwave
+  carrierwave (~> 1.0)
   coffee-rails (~> 4.2)
   dotenv-rails
   faker

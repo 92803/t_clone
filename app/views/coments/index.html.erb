@@ -1,18 +1,24 @@
 <div class="main main-table">
   <div class="page-logo">
-    <h2>･:*+.All Your Coment.:+*</h2>
+    <h2>･:*+.All Coment.:+*</h2>
   </div>
 
   <div class="posts-index">
     <div class="row row-eq-height container">
       <% @coments.each do |coment| %>
         <div class="col-xs-12 col-md-6 posts-show-item">
+          <div class="post-icon">
+            <%= image_tag coment.user.icon %>
+          </div>
           <div class="post-user-name">
-            <%= coment.user.name %>
+            ＜<%= coment.user.name %>
           </div>
           <p class="post-coment">
             <%= coment.content %>
           </p>
+          <div class="post-image">
+            <%= image_tag coment.image %>
+          </div>
           <div class="post-time">
             <%= coment.created_at.strftime('%Y/%m/%d %H:%M')%>
           </div>

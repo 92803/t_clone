@@ -23,7 +23,9 @@
       <div class="user_forms">
         <%= f.text_field :name %>
       </div>
-
+      <%= f.label :icon %>
+      <%= f.file_field :icon,id: :user_icon %>
+      <%= f.hidden_field :icon_cache %>
       <div class="user_email">
         <%= f.label :email %>
       </div>

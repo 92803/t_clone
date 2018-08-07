@@ -17,6 +17,9 @@ class ComentsController < ApplicationController
   def new
     if params[:back]
       @coment = Coment.new(coment_params)
+      if params[:cache][:image] != ""
+        @coment.image.retrieve_from_cache! params[:cache][:image]
+      end
     else
       @coment = Coment.new
     end
@@ -30,6 +33,11 @@ class ComentsController < ApplicationController
   def create
     @coment = Coment.new(coment_params)
     @coment.user_id = current_user.id
+
+    if params[:cache][:image] != ""
+      @coment.image.retrieve_from_cache! params[:cache][:image]
+      @coment.save!
+    end
 
     if @coment.save
       ComentMailer.coment_mail(@coment).deliver
@@ -72,6 +80,6 @@ class ComentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def coment_params
-      params.require(:coment).permit(:content)
+      params.require(:coment).permit(:content,:image,:image_cache)
     end
 end

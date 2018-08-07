@@ -34,7 +34,7 @@ gem 'bcrypt', '3.1.11'
 # gem 'capistrano-rails', group: :development
 gem 'dotenv-rails'
 gem 'faker'
-gem 'carrierwave'
+gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
 
 group :development, :test do
